@@ -369,3 +369,99 @@ obsidian_search_notes "关键词"
 ---
 
 *本仓库由 OpenClaw AI 助手自动管理*
+
+---
+
+## 📚 历史记忆智能分类
+
+### 从历史记忆提取的偏好和决定
+
+已从历史记忆中提取并分类：
+
+#### 用户偏好
+- 使用 MiniMax M2.5 模型
+- 使用 OpenCode 作为开发工具
+- 使用 tmux 管理后台任务
+
+#### 重要决定
+- 采用 9 人团队架构（监工 + PM + 前端 + 后端 + QA + 运维）
+- 使用 MCP 协议集成 Obsidian
+- 使用 git worktree 进行分支隔离
+- 创建 memory-manager Skill
+- 每天 23:00 定时同步
+- 每 30 分钟自动保存会话
+
+### 智能分类关键词
+
+| 类型 | 关键词 | 保存位置 |
+|------|---------|----------|
+| 偏好 | 喜欢、讨厌、偏好、爱用、更喜欢 | 用户偏好.md |
+| 决定 | 决定、采用、选择、确定用 | 重要决定.md |
+| 任务 | 要做、需要做、下周、明天、今天要 | 每日记录.md |
+| 普通 | 其他 | 每日记录.md |
+
+---
+
+## 🔄 工作流程
+
+### 完整工作流程
+
+```
+1. 对话进行中...
+    ↓
+2. 每 30 分钟自动保存会话 (auto-save-session.sh)
+    ↓
+3. 每天 23:00 同步到 GitHub (sync.sh)
+    ↓
+4. 手动触发智能分类 (auto-organize.sh)
+    ↓
+5. 自动识别并分类保存
+```
+
+### 自动保存触发条件
+
+| 触发方式 | 条件 | 保存位置 |
+|----------|------|----------|
+| Cron 每 30 分钟 | 自动 | 950-会话记录/ |
+| /new 命令 | 手动 | 950-会话记录/ |
+| auto-organize.sh | 手动 | 200-项目/ |
+
+---
+
+## 📝 快速命令参考
+
+### 常用命令
+
+```bash
+# 1. 手动记录
+/data/vault/auto_record.sh "内容"
+
+# 2. 智能分类
+/data/vault/auto-organize.sh "我喜欢用 Python"
+/data/vault/auto-organize.sh "决定采用 Vue"
+/data/vault/auto-organize.sh "下周要做..."
+
+# 3. 同步
+/data/vault/sync.sh
+
+# 4. 查看 Cron 任务
+crontab -l | grep vault
+
+# 5. 查看日志
+tail -f /tmp/auto-save-session.log
+tail -f /tmp/vault-sync.log
+```
+
+### Cron 任务列表
+
+```bash
+# 每天 23:00 自动同步
+0 23 * * * /data/vault/sync.sh
+
+# 每 30 分钟自动保存会话
+*/30 * * * * /data/vault/auto-save-session.sh
+```
+
+---
+
+*最后更新: 2026-02-28*
