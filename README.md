@@ -91,13 +91,67 @@ git push
 
 ## 换电脑后的操作
 
-### 1. 克隆仓库
+### 完整检查清单
+
+#### 1. 安装基础依赖
 ```bash
-# 克隆 vault 到本地
+# 安装 Docker
+curl -fsSL https://get.docker.com | sh
+
+# 安装 Git
+apt-get install -y git
+
+# 安装 Node.js (推荐使用 nvm)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+nvm install --lts
+```
+
+#### 2. 配置 Git SSH
+```bash
+# 生成 SSH 密钥
+ssh-keygen -t ed25519 -C "your@email.com"
+
+# 添加到 SSH Agent
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+# 复制公钥到 GitHub
+cat ~/.ssh/id_ed25519.pub
+# 然后添加到 GitHub → Settings → SSH Keys
+```
+
+#### 3. 安装 OpenClaw
+```bash
+# 克隆 OpenClaw
+git clone git@github.com:openclaw/openclaw.git
+cd openclaw
+
+# 安装依赖
+npm install
+
+# 配置 OpenClaw
+# 参考官方文档进行初始化
+```
+
+#### 4. 克隆仓库
+```bash
+# 创建工作目录
+mkdir -p ~/.openclaw/workspace
+cd ~/.openclaw/workspace
+
+# 克隆所有需要的仓库
+git clone git@github.com:JasonFang1993/openclaw-memory.git
+git clone git@github.com:JasonFang1993/openclaw-skills.git
 git clone git@github.com:JasonFang1993/obsidian-vault.git /data/vault
 ```
 
-### 2. 配置 OpenClaw MCP
+#### 5. 安装 Skills
+```bash
+# 链接 memory-manager
+ln -s ~/.openclaw/workspace/openclaw-skills/memory-manager ~/.openclaw/skills/memory-manager
+```
+
+#### 6. 配置 MCP（重要！）
 ```bash
 # 安装 MCP 适配器
 openclaw plugins install openclaw-mcp-adapter
@@ -119,13 +173,43 @@ jq '.plugins.entries."openclaw-mcp-adapter" = {
 openclaw gateway restart
 ```
 
-### 3. 设置定时同步（可选）
+#### 7. 启动 Docker
+```bash
+# 启动 Docker
+systemctl start docker
+systemctl enable docker
+```
+
+#### 8. 设置定时同步（可选）
 ```bash
 # 添加 Cron 任务
 crontab -e
 
 # 添加以下行：
 0 23 * * * cd /data/vault && git add -A && git commit -m "chore: daily sync" && git push
+```
+
+---
+
+### 快速验证
+
+安装完成后，验证以下内容：
+
+```bash
+# 1. 检查 Docker
+docker --version
+
+# 2. 检查 OpenClaw
+openclaw --version
+
+# 3. 检查 MCP 插件
+openclaw plugins list | grep mcp
+
+# 4. 检查 vault 文件
+ls -la /data/vault/
+
+# 5. 测试自动记录脚本
+/data/vault/auto_record.sh "测试"
 ```
 
 ## 技术栈
