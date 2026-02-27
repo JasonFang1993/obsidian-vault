@@ -109,6 +109,85 @@ crontab -e
 - [openclaw-skills](https://github.com/JasonFang1993/openclaw-skills) - Skills 集合
 - [openclaw-memory](https://github.com/JasonFang1993/openclaw-memory) - 方案文档（已迁移，可删除）
 
+## MCP 工具列表
+
+通过 openclaw-mcp-adapter 提供以下工具：
+
+| 工具 | 功能 |
+|------|------|
+| obsidian_read_note | 读取笔记 |
+| obsidian_write_note | 创建笔记 |
+| obsidian_search_notes | 搜索笔记 |
+| obsidian_manage_tags | 管理标签 |
+| obsidian_list_directory | 列出目录 |
+| obsidian_get_vault_stats | 获取统计 |
+
+## 故障排查
+
+### MCP 连接失败
+```bash
+# 检查 npx 是否可用
+which npx
+
+# 手动测试
+npx -y @mauricio.wolff/mcp-obsidian /data/vault
+
+# 检查 Gateway 日志
+tail -50 /tmp/openclaw/openclaw-2026-02-27.log | grep mcp
+```
+
+### 工具不可用
+```bash
+# 重启 Gateway
+openclaw gateway restart
+
+# 检查插件状态
+openclaw plugins list | grep mcp
+```
+
+### Git 推送失败
+```bash
+# 检查网络
+ping github.com
+
+# 重新添加远程
+git remote remove origin
+git remote add origin git@github.com:JasonFang1993/obsidian-vault.git
+```
+
+## 备份与恢复
+
+### 手动备份
+```bash
+# 打包 vault
+cd /data
+tar -czvf vault-backup.tar.gz vault/
+
+# 推送到备份仓库
+git push backup main
+```
+
+### 恢复
+```bash
+# 克隆备份
+git clone git@github.com:JasonFang1993/obsidian-vault.git /data/vault
+```
+
+## 权限配置
+
+### 目录权限
+```bash
+# 确保 vault 目录可读写
+chmod -R 755 /data/vault
+chown -R $(whoami) /data/vault
+```
+
+### Git 权限
+```bash
+# 检查 SSH 密钥
+ssh -T git@github.com
+```
+
 ## 使用示例
 
 ### 记录每日内容
