@@ -8,12 +8,14 @@ OpenClaw + Obsidian 知识记忆库
 obsidian-vault/
 ├── 01-Memory/          # 记忆主目录
 │   ├── 000-索引.md     # 索引入口
-│   ├── 100-每日/       # 每日记录（自动记录）
-│   ├── 200-项目/       # 项目记忆
+│   ├── 100-每日/       # 每日记录
+│   ├── 200-项目/       # 项目记忆（用户偏好、重要决定）
 │   ├── 300-知识/       # 知识库
-│   ├── 400-AI新闻/    # AI 新闻研究
-│   └── 900-记忆/       # 工作记录（AI 记忆）
-└── 02-Rules/           # 规则目录
+│   ├── 400-AI新闻/     # AI 新闻研究
+│   ├── 900-记忆/       # 工作记录
+│   └── 950-会话记录/   # 自动会话保存
+├── 02-Rules/           # 规则目录
+└── scripts/            # 自动化脚本
 ```
 
 ### 目录编号规则
@@ -22,15 +24,16 @@ obsidian-vault/
 |------|------|
 | 000 | 索引/入口 |
 | 100 | 每日记录（高频） |
-| 200 | 项目相关 |
+| 200 | 项目相关（偏好、决定） |
 | 300 | 知识库 |
 | 400 | 专题（如 AI 新闻） |
 | 900 | 归档/记忆 |
+| 950 | 会话自动记录 |
 
 ### 重要路径
 
 - **Vault 路径**: `/data/vault/`
-- **自动记录脚本**: `/data/vault/auto_record.sh`
+- **脚本目录**: `/data/vault/*.sh`
 
 ## 标签体系
 
@@ -40,122 +43,133 @@ obsidian-vault/
 - #memory/knowledge - 知识库
 - #memory/important - 重要信息
 
-## 自动管理（开发中）
+---
 
-### 自动记录脚本详细用法
+## 🎯 快速开始
+
+### 1. 自动记录（手动）
 
 ```bash
-# 基本用法
 /data/vault/auto_record.sh "今天完成了 MCP 配置"
-
-# 自动创建当日文件并追加内容
-# 输出格式：
-# - HH:MM: 内容
 ```
 
-### 自动记录示例
+### 2. 智能分类（自动识别）
 
 ```bash
-# 记录工作内容
-./auto_record.sh "完成了 OpenClaw + Obsidian 集成"
+/data/vault/auto-organize.sh "我喜欢用 TypeScript"
+# → 自动识别为偏好，保存到 200-项目/用户偏好.md
 
-# 记录学习内容
-./auto_record.sh "学习了 MCP 协议"
+/data/vault/auto-organize.sh "决定采用 Vue 框架"
+# → 自动识别为决定，保存到 200-项目/重要决定.md
+
+/data/vault/auto-organize.sh "下周要做功能优化"
+# → 自动识别为任务，保存到 100-每日/
 ```
 
-### 定时同步
+### 3. 会话保存
 
-创建 Cron 任务：
+对话结束时输入 `/new` 会自动保存会话到 `950-会话记录/`
+
+---
+
+## 🔧 自动化脚本
+
+### 脚本列表
+
+| 脚本 | 功能 | 频率 |
+|------|------|------|
+| `auto_record.sh` | 手动记录 | 手动 |
+| `auto-organize.sh` | 智能分类 | 手动 |
+| `sync.sh` | 同步到 GitHub | 每天 23:00 |
+| `auto-save.sh` | 自动保存会话 | 每 30 分钟 |
+
+### 1. auto_record.sh - 手动记录
+
 ```bash
-# 每天 23:00 自动同步
-0 23 * * * cd /data/vault && git add -A && git commit -m "chore: daily sync" && git push
+# 记录内容到当日笔记
+/data/vault/auto_record.sh "今天完成了 MCP 配置"
 ```
 
-## 同步到远程
-
-### 自动同步（推荐）
-
-创建 Cron 任务：
-```bash
-# 每天 23:00 自动同步
-0 23 * * * cd /data/vault && git add -A && git commit -m "chore: daily sync" && git push
+输出：
+```
+已记录到: /data/vault/01-Memory/100-每日/2026-02-27.md
 ```
 
-### 手动同步
+### 2. auto-organize.sh - 智能分类
+
+根据关键词自动识别内容类型并分类：
+
+| 关键词示例 | 类型 | 保存位置 |
+|------------|------|----------|
+| "我喜欢..." "偏好..." | preference | 200-项目/用户偏好.md |
+| "决定..." "采用..." | decision | 200-项目/重要决定.md |
+| "要做..." "下周..." | task | 100-每日/ |
+| 其他 | normal | 100-每日/ |
+
 ```bash
-cd /data/vault
-git add -A
-git commit -m "update: ..."
-git push
+# 识别用户偏好
+/data/vault/auto-organize.sh "我喜欢用 TypeScript"
+
+/data/vault/auto-organize.sh "用户说讨厌复杂的代码"
+
+/data/vault/auto-organize.sh "决定采用 React 框架"
+
+/data/vault/auto-organize.sh "下周要完成部署"
+
+/data/vault/auto-organize.sh "今天天气不错"
 ```
 
-## 换电脑后的操作
+### 3. sync.sh - 同步到 GitHub
 
-### 完整检查清单
-
-#### 1. 安装基础依赖
 ```bash
-# 安装 Docker
-curl -fsSL https://get.docker.com | sh
+# 手动运行
+/data/vault/sync.sh
 
-# 安装 Git
-apt-get install -y git
-
-# 安装 Node.js (推荐使用 nvm)
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-nvm install --lts
+# 或等待每天 23:00 自动执行
 ```
 
-#### 2. 配置 Git SSH
+### 4. auto-save.sh - 自动保存会话
+
+每 30 分钟自动运行，保存会话记录到 `950-会话记录/`
+
+---
+
+## ⏰ 定时任务（Cron）
+
+已配置的定时任务：
+
 ```bash
-# 生成 SSH 密钥
-ssh-keygen -t ed25519 -C "your@email.com"
+# 1. 每天 23:00 自动同步
+0 23 * * * /data/vault/sync.sh >> /tmp/vault-sync.log 2>&1
 
-# 添加到 SSH Agent
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
-
-# 复制公钥到 GitHub
-cat ~/.ssh/id_ed25519.pub
-# 然后添加到 GitHub → Settings → SSH Keys
+# 2. 每 30 分钟自动保存会话
+*/30 * * * * /data/vault/auto-save.sh >> /tmp/auto-save.log 2>&1
 ```
 
-#### 3. 安装 OpenClaw
+### 查看 Cron 任务
+
 ```bash
-# 克隆 OpenClaw
-git clone git@github.com:openclaw/openclaw.git
-cd openclaw
-
-# 安装依赖
-npm install
-
-# 配置 OpenClaw
-# 参考官方文档进行初始化
+crontab -l | grep vault
 ```
 
-#### 4. 克隆仓库
+---
+
+## 🔌 MCP 配置
+
+### MCP 工具列表
+
+| 工具 | 功能 |
+|------|------|
+| obsidian_read_note | 读取笔记 |
+| obsidian_write_note | 创建笔记 |
+| obsidian_search_notes | 搜索笔记 |
+| obsidian_manage_tags | 管理标签 |
+| obsidian_list_directory | 列出目录 |
+| obsidian_get_vault_stats | 获取统计 |
+
+### 配置命令
+
 ```bash
-# 创建工作目录
-mkdir -p ~/.openclaw/workspace
-cd ~/.openclaw/workspace
-
-# 克隆所有需要的仓库
-git clone git@github.com:JasonFang1993/openclaw-memory.git
-git clone git@github.com:JasonFang1993/openclaw-skills.git
-git clone git@github.com:JasonFang1993/obsidian-vault.git /data/vault
-```
-
-#### 5. 安装 Skills
-```bash
-# 链接 memory-manager
-ln -s ~/.openclaw/workspace/openclaw-skills/memory-manager ~/.openclaw/skills/memory-manager
-```
-
-#### 6. 配置 MCP（重要！）
-```bash
-# 安装 MCP 适配器
-openclaw plugins install openclaw-mcp-adapter
-
 # 配置 MCP
 jq '.plugins.entries."openclaw-mcp-adapter" = {
   "enabled": true,
@@ -173,44 +187,160 @@ jq '.plugins.entries."openclaw-mcp-adapter" = {
 openclaw gateway restart
 ```
 
-#### 7. 启动 Docker
+---
+
+## 💾 换电脑后的操作（完整版）
+
+### 1. 安装基础依赖
+
 ```bash
-# 启动 Docker
-systemctl start docker
-systemctl enable docker
+# 安装 Docker
+curl -fsSL https://get.docker.com | sh
+
+# 安装 Git
+apt-get install -y git
+
+# 安装 Node.js
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+nvm install --lts
 ```
 
-#### 8. 设置定时同步（可选）
+### 2. 配置 Git SSH
+
+```bash
+# 生成 SSH 密钥
+ssh-keygen -t ed25519 -C "your@email.com"
+
+# 添加到 GitHub
+# Settings → SSH Keys → Add new
+```
+
+### 3. 安装 OpenClaw
+
+```bash
+git clone git@github.com:openclaw/openclaw.git
+cd openclaw
+npm install
+```
+
+### 4. 克隆仓库
+
+```bash
+mkdir -p ~/.openclaw/workspace
+cd ~/.openclaw/workspace
+
+git clone git@github.com:JasonFang1993/openclaw-skills.git
+git clone git@github.com:JasonFang1993/obsidian-vault.git /data/vault
+```
+
+### 5. 安装 Skills
+
+```bash
+ln -s ~/.openclaw/workspace/openclaw-skills/memory-manager ~/.openclaw/skills/memory-manager
+```
+
+### 6. 配置 MCP
+
+```bash
+# 安装 MCP 适配器
+openclaw plugins install openclaw-mcp-adapter
+
+# 配置 MCP（见上文）
+
+# 重启 Gateway
+openclaw gateway restart
+```
+
+### 7. 设置定时任务
+
 ```bash
 # 添加 Cron 任务
 crontab -e
 
 # 添加以下行：
-0 23 * * * cd /data/vault && git add -A && git commit -m "chore: daily sync" && git push
+0 23 * * * /data/vault/sync.sh >> /tmp/vault-sync.log 2>&1
+*/30 * * * * /data/vault/auto-save.sh >> /tmp/auto-save.log 2>&1
+```
+
+### 8. 验证
+
+```bash
+# 检查脚本
+ls -la /data/vault/*.sh
+
+# 检查 Cron
+crontab -l | grep vault
+
+# 测试自动记录
+/data/vault/auto_record.sh "测试"
 ```
 
 ---
 
-### 快速验证
+## 🔧 故障排查
 
-安装完成后，验证以下内容：
+### MCP 连接失败
 
 ```bash
-# 1. 检查 Docker
-docker --version
+# 检查 npx
+which npx
 
-# 2. 检查 OpenClaw
-openclaw --version
+# 手动测试
+npx -y @mauricio.wolff/mcp-obsidian /data/vault
 
-# 3. 检查 MCP 插件
-openclaw plugins list | grep mcp
-
-# 4. 检查 vault 文件
-ls -la /data/vault/
-
-# 5. 测试自动记录脚本
-/data/vault/auto_record.sh "测试"
+# 查看日志
+tail -50 /tmp/openclaw/openclaw-2026-02-27.log | grep mcp
 ```
+
+### 工具不可用
+
+```bash
+openclaw gateway restart
+openclaw plugins list | grep mcp
+```
+
+### Git 推送失败
+
+```bash
+# 检查网络
+ping github.com
+
+# 重新添加远程
+git remote remove origin
+git remote add origin git@github.com:JasonFang1993/obsidian-vault.git
+```
+
+---
+
+## 📋 使用示例
+
+### 记录每日内容
+
+```bash
+/data/vault/auto_record.sh "今天完成了 OpenClaw + Obsidian 集成"
+```
+
+### 智能分类
+
+```bash
+# 用户偏好
+/data/vault/auto-organize.sh "我喜欢用 TypeScript"
+
+/data/vault/auto-organize.sh "用户讨厌复杂的配置"
+
+/data/vault/auto-organize.sh "决定用 Vue3"
+
+/data/vault/auto-organize.sh "下周要实现自动同步"
+```
+
+### 搜索记忆
+
+```bash
+# 通过 MCP 工具
+obsidian_search_notes "关键词"
+```
+
+---
 
 ## 技术栈
 
@@ -222,120 +352,13 @@ ls -la /data/vault/
 ## 相关仓库
 
 - [openclaw-skills](https://github.com/JasonFang1993/openclaw-skills) - Skills 集合
-- [openclaw-memory](https://github.com/JasonFang1993/openclaw-memory) - 方案文档
-
-## MCP 工具列表
-
-通过 openclaw-mcp-adapter 提供以下工具：
-
-| 工具 | 功能 |
-|------|------|
-| obsidian_read_note | 读取笔记 |
-| obsidian_write_note | 创建笔记 |
-| obsidian_search_notes | 搜索笔记 |
-| obsidian_manage_tags | 管理标签 |
-| obsidian_list_directory | 列出目录 |
-| obsidian_get_vault_stats | 获取统计 |
-
-## 故障排查
-
-### MCP 连接失败
-```bash
-# 检查 npx 是否可用
-which npx
-
-# 手动测试
-npx -y @mauricio.wolff/mcp-obsidian /data/vault
-
-# 检查 Gateway 日志
-tail -50 /tmp/openclaw/openclaw-2026-02-27.log | grep mcp
-```
-
-### 工具不可用
-```bash
-# 重启 Gateway
-openclaw gateway restart
-
-# 检查插件状态
-openclaw plugins list | grep mcp
-```
-
-### Git 推送失败
-```bash
-# 检查网络
-ping github.com
-
-# 重新添加远程
-git remote remove origin
-git remote add origin git@github.com:JasonFang1993/obsidian-vault.git
-```
-
-## 备份与恢复
-
-### 手动备份
-```bash
-# 打包 vault
-cd /data
-tar -czvf vault-backup.tar.gz vault/
-
-# 推送到备份仓库
-git push backup main
-```
-
-### 恢复
-```bash
-# 克隆备份
-git clone git@github.com:JasonFang1993/obsidian-vault.git /data/vault
-```
-
-## 权限配置
-
-### 目录权限
-```bash
-# 确保 vault 目录可读写
-chmod -R 755 /data/vault
-chown -R $(whoami) /data/vault
-```
-
-### Git 权限
-```bash
-# 检查 SSH 密钥
-ssh -T git@github.com
-```
-
-## 使用示例
-
-### 记录每日内容
-```bash
-./auto_record.sh "今天完成了 MCP 配置"
-```
-
-### 搜索记忆
-```bash
-# 通过 MCP 工具搜索
-obsidian_search_notes "关键词"
-```
-
-### 读取记忆
-```bash
-# 读取指定文件
-obsidian_read_note "01-Memory/900-记忆/2026-02-27.md"
-```
-
----
-
-*本仓库由 OpenClaw AI 助手自动管理*
 
 ## 依赖要求
 
-### 运行时依赖
 - Node.js 18+
 - npx
 - Git
-
-### OpenClaw 依赖
-- openclaw-mcp-adapter 插件
-- @mauricio.wolff/mcp-obsidian
+- Docker
 
 ## 安全注意事项
 
@@ -343,13 +366,6 @@ obsidian_read_note "01-Memory/900-记忆/2026-02-27.md"
 2. **使用 .gitignore** - 排除 .obsidian 等目录
 3. **定期备份** - 建议每日同步
 
-## 更新日志
+---
 
-### 2026-02-27
-- 初始化 vault
-- 迁移所有旧 memory 文件
-- 添加 MCP 配置
-- 添加 memory-manager Skill
-
-### 历史文件
-- 原 openclaw-memory 仓库内容已迁移到 900-记忆/ 目录
+*本仓库由 OpenClaw AI 助手自动管理*
