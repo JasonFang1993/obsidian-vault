@@ -465,3 +465,45 @@ tail -f /tmp/vault-sync.log
 ---
 
 *最后更新: 2026-02-28*
+
+---
+
+## 🔍 检索/查找
+
+### 方式一：命令行搜索
+
+```bash
+# 搜索关键词
+/data/vault/search.sh "TypeScript"
+
+# 搜索用户偏好
+/data/vault/search.sh "偏好"
+
+# 搜索重要决定
+/data/vault/search.sh "决定"
+```
+
+### 方式二：MCP 工具搜索
+
+```bash
+# 通过 MCP 工具搜索
+obsidian_search_notes "关键词"
+```
+
+### 方式三：Obsidian 客户端
+
+在 Obsidian 中打开 vault，直接搜索
+
+### 搜索覆盖范围
+
+| 目录 | 内容 |
+|------|------|
+| 100-每日 | 每日记录 |
+| 200-项目 | 偏好、决定 |
+| 300-知识 | 知识库 |
+| 400-AI新闻 | AI 新闻 |
+| 900-记忆 | 工作记录 |
+| 950-会话记录 | 自动会话 |
+
+---
+
