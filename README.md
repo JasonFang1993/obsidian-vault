@@ -222,7 +222,7 @@ ls -la /data/vault/
 ## 相关仓库
 
 - [openclaw-skills](https://github.com/JasonFang1993/openclaw-skills) - Skills 集合
-- [openclaw-memory](https://github.com/JasonFang1993/openclaw-memory) - 方案文档（已迁移，可删除）
+- [openclaw-memory](https://github.com/JasonFang1993/openclaw-memory) - 方案文档
 
 ## MCP 工具列表
 
