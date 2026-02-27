@@ -16,6 +16,22 @@ obsidian-vault/
 └── 02-Rules/           # 规则目录
 ```
 
+### 目录编号规则
+
+| 编号 | 含义 |
+|------|------|
+| 000 | 索引/入口 |
+| 100 | 每日记录（高频） |
+| 200 | 项目相关 |
+| 300 | 知识库 |
+| 400 | 专题（如 AI 新闻） |
+| 900 | 归档/记忆 |
+
+### 重要路径
+
+- **Vault 路径**: `/data/vault/`
+- **自动记录脚本**: `/data/vault/auto_record.sh`
+
 ## 标签体系
 
 - #memory/索引 - 核心索引
@@ -26,19 +42,34 @@ obsidian-vault/
 
 ## 自动管理（开发中）
 
-### 当前功能
+### 自动记录脚本详细用法
 
-1. **自动记录脚本**: `auto_record.sh`
-   - 用法: `./auto_record.sh "记录内容"`
-   - 自动创建每日文件并追加内容
+```bash
+# 基本用法
+/data/vault/auto_record.sh "今天完成了 MCP 配置"
 
-2. **定时同步**: 每日自动推送到 GitHub
+# 自动创建当日文件并追加内容
+# 输出格式：
+# - HH:MM: 内容
+```
 
-### 开发中的功能
+### 自动记录示例
 
-- [ ] 对话结束自动记录
-- [ ] 重要信息自动识别
-- [ ] 自动分类整理
+```bash
+# 记录工作内容
+./auto_record.sh "完成了 OpenClaw + Obsidian 集成"
+
+# 记录学习内容
+./auto_record.sh "学习了 MCP 协议"
+```
+
+### 定时同步
+
+创建 Cron 任务：
+```bash
+# 每天 23:00 自动同步
+0 23 * * * cd /data/vault && git add -A && git commit -m "chore: daily sync" && git push
+```
 
 ## 同步到远程
 
@@ -210,3 +241,31 @@ obsidian_read_note "01-Memory/900-记忆/2026-02-27.md"
 ---
 
 *本仓库由 OpenClaw AI 助手自动管理*
+
+## 依赖要求
+
+### 运行时依赖
+- Node.js 18+
+- npx
+- Git
+
+### OpenClaw 依赖
+- openclaw-mcp-adapter 插件
+- @mauricio.wolff/mcp-obsidian
+
+## 安全注意事项
+
+1. **不要提交敏感信息** - API Key、密码等
+2. **使用 .gitignore** - 排除 .obsidian 等目录
+3. **定期备份** - 建议每日同步
+
+## 更新日志
+
+### 2026-02-27
+- 初始化 vault
+- 迁移所有旧 memory 文件
+- 添加 MCP 配置
+- 添加 memory-manager Skill
+
+### 历史文件
+- 原 openclaw-memory 仓库内容已迁移到 900-记忆/ 目录
