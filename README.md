@@ -81,7 +81,7 @@ obsidian-vault/
 | `auto_record.sh` | 手动记录 | 手动 |
 | `auto-organize.sh` | 智能分类 | 手动 |
 | `sync.sh` | 同步到 GitHub | 每天 23:00 |
-| `auto-save.sh` | 自动保存会话 | 每 30 分钟 |
+| `auto-save-session.sh` | 自动保存会话 | 每 30 分钟 |
 
 ### 1. auto_record.sh - 手动记录
 
@@ -128,7 +128,7 @@ obsidian-vault/
 # 或等待每天 23:00 自动执行
 ```
 
-### 4. auto-save.sh - 自动保存会话
+### 4. auto-save-session.sh - 自动保存会话
 
 每 30 分钟自动运行，保存会话记录到 `950-会话记录/`
 
@@ -143,7 +143,7 @@ obsidian-vault/
 0 23 * * * /data/vault/sync.sh >> /tmp/vault-sync.log 2>&1
 
 # 2. 每 30 分钟自动保存会话
-*/30 * * * * /data/vault/auto-save.sh >> /tmp/auto-save.log 2>&1
+*/30 * * * * /data/vault/auto-save-session.sh >> /tmp/auto-save.log 2>&1
 ```
 
 ### 查看 Cron 任务
@@ -259,7 +259,7 @@ crontab -e
 
 # 添加以下行：
 0 23 * * * /data/vault/sync.sh >> /tmp/vault-sync.log 2>&1
-*/30 * * * * /data/vault/auto-save.sh >> /tmp/auto-save.log 2>&1
+*/30 * * * * /data/vault/auto-save-session.sh >> /tmp/auto-save.log 2>&1
 ```
 
 ### 8. 验证
