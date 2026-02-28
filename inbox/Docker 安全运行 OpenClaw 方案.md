@@ -3,6 +3,7 @@ title: Docker 安全运行 OpenClaw 方案 - 沙盒隔离 + 本地模型
 source: 微信文章
 url: https://mp.weixin.qq.com/s/cnRfrMElMQqyj6_hxCevuw
 date: 2025-01-20
+updated: 2025-01-21
 tags:
   - openclaw
   - docker
@@ -10,7 +11,7 @@ tags:
   - ai-agent
 ---
 
-> “本地运行 OpenClaw？Docker 给出了目前最安全的方案。不是因为外面太危险——而是因为你不知道 AI 代理在你的机器上悄悄干了什么。
+> "本地运行 OpenClaw？Docker 给出了目前最安全的方案。不是因为外面太危险——而是因为你不知道 AI 代理在你的机器上悄悄干了什么。"
 
 ## 背景
 
@@ -48,6 +49,8 @@ Docker Desktop 内置的本地 LLM 推理引擎，绑定在主机的 `localhost:
 docker model pull ai/gpt-oss:20B-UD-Q4_K_XL
 ```
 
+也支持 Qwen、Llama 等主流开源模型。
+
 优势：
 - 无 API 费用
 - 完全私有，代码和 Prompt 从不离开你的机器
@@ -70,6 +73,8 @@ docker sandbox run openclaw
 ~/start-openclaw.sh
 ```
 
+启动脚本会自动发现 Docker Model Runner 里可用的模型，列出来让你选。
+
 ## 网络桥接技术细节
 
 Docker Model Runner 跑在主机的 `localhost:12434`，但 Sandbox 内部的 localhost 指向的是 Sandbox 自己。
@@ -83,6 +88,16 @@ Docker Model Runner 跑在主机的 `localhost:12434`，但 Sandbox 内部的 lo
 
 这个设计让网络控制权始终在代理层，OpenClaw 只能通过这条有限的通路与外部通信。
 
+## 自建流程（可选）
+
+如果你不想用预构建镜像：
+
+1. 创建基础 Sandbox，手动安装 Node.js 22 和 OpenClaw
+2. 写入桥接脚本
+3. 修改 OpenClaw 配置文件，指向本地 Model Runner 的 API 地址
+4. 用 `docker sandbox save` 保存为可复用镜像
+5. 推送到 Registry，团队成员一个命令拉起来
+
 ## 总结
 
 Docker Sandboxes 提供的是一种**结构性的约束**：
@@ -91,6 +106,8 @@ Docker Sandboxes 提供的是一种**结构性的约束**：
 - API 密钥从不暴露给代理本身
 
 这不是"信任 AI 代理"，而是"给 AI 代理设定可验证的边界"。
+
+随着 AI 代理越来越多地进入本地开发流程，这个问题会越来越重要。Docker 这次的方案，至少是一个思路清晰、工程落地扎实的起点。
 
 ---
 
