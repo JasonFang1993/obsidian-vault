@@ -4,6 +4,19 @@ _精选值得长期保留的重要信息_
 
 ---
 
+## ⚠️ 重要：记忆同步仓库
+
+**Obsidian 仓库（主要）**：
+- 本地：`/data/vault/`
+- 远程：`https://github.com/JasonFang1993/obsidian-vault`
+
+**同步位置**：
+- 记忆 → `/data/vault/01-Memory/900-记忆/`
+- 每日 → `/data/vault/01-Memory/100-每日/`
+- 项目 → `/data/vault/01-Memory/200-项目/`
+
+---
+
 ## 🔄 重装电脑后操作指引（完整版）
 
 ### 1. 安装基础依赖
