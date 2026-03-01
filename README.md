@@ -507,3 +507,59 @@ obsidian_search_notes "关键词"
 
 ---
 
+
+---
+
+## 🦞 官方 Memory 系统整合（方案 A）
+
+### 与官方 LanceDB 共存
+
+我们的系统与官方向量库系统**各司其职**：
+
+| 系统 | 用途 | 优势 |
+|------|------|------|
+| 我们的文件存储 | 持久化备份 + 手动整理 | 简单、可读、可控 |
+| 官方 LanceDB | 语义搜索 | 智能、理解语义 |
+
+### 官方推荐：memory-hygiene
+
+安装官方 Skill：
+```bash
+clawhub install memory-hygiene
+```
+
+#### 核心命令
+
+```bash
+# 审计：查看向量库内容
+memory_recall query="*" limit=50
+
+# 清理：删除向量库
+rm -rf ~/.clawdbot/memory/lancedb/
+openclaw gateway restart
+
+# 重新存储重要信息
+memory_store text="用户喜欢 TypeScript" category="preference" importance=0.9
+```
+
+#### 官方建议存储
+
+✅ **应该存储**：
+- 用户偏好
+- 重要决定
+- 关键事实
+
+❌ **不应存储**：
+- 心跳状态 ("HEARTBEAT_OK")
+- 临时信息（时间、临时状态）
+- 原始消息日志
+
+#### 定期维护 Cron
+
+```bash
+# 每月 1 日 4 点清理
+0 4 1 * * rm -rf ~/.clawdbot/memory/lancedb/
+```
+
+---
+
