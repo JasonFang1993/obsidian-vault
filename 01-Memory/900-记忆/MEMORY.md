@@ -313,6 +313,38 @@ git add -A && git commit -m "chore: sync" && git push
 
 **技术提醒**：获取公开 GitHub 信息用 API，别用网页抓取
 
+### 2026-03-02: OpenClaw 多 Agent 跨境电商流水线
+
+**来源**：https://mp.weixin.qq.com/s/YmqaoLZlu6_faB_pWwoRWw
+
+**5 个核心 AI 员工**：
+| Agent | 职责 |
+|-------|------|
+| 大总管 (lead) | 需求拆解、跨节点分发任务 |
+| VOC 市场分析师 | 全网抓取评价数据，提炼用户痛点 |
+| GEO 内容优化师 | 亚马逊/独立站内容撰写 |
+| Reddit 营销专家 | 严格执行养号 SOP，引流 |
+| TikTok 爆款编导 | 分析爆款，生成 UGC 带贷视频 |
+
+**协作流程**：
+1. @大总管触发任务
+2. VOC 洞察 → 抓差评得痛点
+3. GEO 优化 → 写博客针对 AI 搜索
+4. Reddit 引流 → 劫持老帖子流量
+5. TikTok 视频 → 生成 15 秒 UGC 视频
+
+**关键技术点**：
+- 异步状态机：复杂任务拆解成流水线
+- sessions_send：跨 Agent 通信
+- 飞书多账号路由：5 个独立应用，WebSocket 长连接
+- 层级隔离：公共技能放全局 ~/.openclaw/skills/，私有技能放 Agent 专属目录
+- 模型分级：决策层用贵的，执行层用便宜的
+
+**常见问题**：
+- Agent 设计：功能导向 > 平台导向
+- 机器人互 @ 无效：用 sessions_send 走暗线
+- Skill 优先级：公共放 ~/.openclaw/skills/
+
 ---
 
 ## 🧠 OpenClaw 经验总结（2026-03-01）
