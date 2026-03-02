@@ -266,3 +266,159 @@ git add -A && git commit -m "chore: sync" && git push
 #### 4. 设计先行
 - 任何项目必须先设计，获得批准后才能实现
 - 看似繁琐，实则避免返工
+
+### 2026-03-02: Agent-Reach 学习
+
+**来源**:
+- 微信文章：https://mp.weixin.qq.com/s/01UG0T6cbzZZMzGWvTc9dg
+- GitHub：https://github.com/Panniantong/Agent-Reach
+
+**项目介绍**：
+- 让 AI Agent 一键拥有互联网能力
+- 2天 1.1K Star → 现在 3K+ Star
+- 核心理念：脚手架，不是框架
+
+**功能**：
+| 平台 | 费用 |
+|------|------|
+| Twitter/X | 免费（Cookie） |
+| YouTube/B站 | 免费 |
+| 小红书 | 免费（Cookie） |
+| GitHub | 免费 |
+| 全网搜索 | 免费（Exa） |
+
+**学到的观点**：
+- AI 时代，想法、判断力比技术重要
+- 通才 > 专才
+- 与其死磕代码，不如死磕念头
+
+**已添加到技能仓库**：agent-reach
+
+---
+
+## 🧠 OpenClaw 经验总结（2026-03-01）
+
+### 翟星人 OpenClaw 系列（12篇）核心认知
+
+#### 1. 架构定位
+- OpenClaw = 7×24 常驻 AI 助理平台
+- 不是"另一个 OpenCode"，是"智能体助理"
+- 核心价值：集成 + 编排 + 调度
+
+#### 2. 底层引擎
+- OpenClaw 底层是 **Pi Coding Agent**
+- Pi 只有 4 个工具：Read/Write/Edit/Bash
+- Pi 本身支持 15+ LLM Provider
+- 架构选择：底层交给 Pi，自己专注做上层（渠道/调度/记忆/编排）
+
+#### 3. 记忆系统（四层）
+1. 文件记忆：MEMORY.md + 每日日记
+2. 自动刷盘+压缩：memoryFlush 先刷盘再压缩
+3. 向量搜索：Hybrid Search（BM25 + 向量）
+4. 高阶：LanceDB/Supermemory
+
+#### 4. 多 Agent 协作
+- Spawn：异步后台任务，不阻塞主 Session
+- 独立 Agent：有独立 workspace/记忆/Session
+- ACP：结构化协议，比PTY更可控
+
+#### 5. 调度器
+- Heartbeat：周期性巡检（默认30分钟）
+- Cron：精确时间任务
+- Webhook：外部触发
+
+#### 6. 安全分层
+- Gateway 认证 → Agent 工具权限 → Workspace 隔离 → 沙箱
+
+---
+
+### 实践评估与建议
+
+#### 已验证可借鉴的方案
+
+| 方案 | 状态 | 说明 |
+|------|------|------|
+| cron-tools | ✅ 有 | daily-brief.sh, weekly-review.sh |
+| pm-toolkit | ✅ 有 | STATE.yaml 协调多 AI |
+
+#### 评估后暂不推荐的方案
+
+| 方案 | 原因 |
+|------|------|
+| 多 Agent 分工 | 复杂度暴增，当前不需要 |
+| ACP 调用 OpenCode | 风险高，当前 exec 模式够用 |
+| 向量搜索 | 等真正需要时再配 |
+
+#### 核心原则
+- **当前模式够用**：OpenClaw 调度 + exec 调用 OpenCode
+- **不给自己找麻烦**：锦上添花 vs 雪中送炭
+- **等痛点来了再配**：不要过度工程化
+
+---
+
+### 知识库
+
+- 翟星人 12 篇系列已保存到：knowledge-base/Resources/AI/
+- 文件：opencode-vs-openclaw.md, openclaw-seven-files.md, openclaw-feishu-team.md, openclaw-camera-monitor.md, openclaw-memory-system.md, openclaw-gateway.md, openclaw-scheduling-security.md, openclaw-multi-agent.md, openclaw-workflows.md, openclaw-acp.md, openclaw-pi-engine.md
+
+---
+
+
+---
+
+## 🎯 OpenCode 系列评估总结（2026-03-01）
+
+### 已学完的系列
+
+| 系列 | 篇数 | 来源 |
+|------|------|------|
+| 翟星人 OpenClaw 系列 | 12篇 | 微信 |
+| 翟星人 OpenCode 系列 | 10篇 | 微信 |
+
+---
+
+### OpenCode 系列核心认知
+
+#### 1. Skills 系统（三级加载）
+- L1: name + description（始终在上下文）
+- L2: SKILL.md（触发时加载）
+- L3: scripts/references（按需加载）
+
+#### 2. MCP vs Skills
+- MCP = 器官（提供能力）
+- Skills = 技能（提供方法）
+
+#### 3. 十大场景
+- 图文视频生产线
+- 智能问数（NL2SQL）
+- 知识库管理
+- ...
+
+#### 4. 核心方法论
+```
+需求 → 找GitHub项目 → 包装成Skill → 永久拥有
+```
+
+---
+
+### 评估结论（与当前模式对比）
+
+| 方案 | 推荐度 | 与当前冲突？ |
+|------|--------|-------------|
+| Skills三级加载 | ⭐⭐ | 无冲突 |
+| 多Skill协作 | ⭐⭐ | 无冲突（已有pm-toolkit）|
+| 知识库增强 | ⭐⭐ | 无冲突（已有link-to-knowledge）|
+| 视频生成 | ⭐ | 暂不需要 |
+| NL2SQL | ⭐ | 暂不需要 |
+
+---
+
+### 我们的模式
+
+- **OpenClaw** = 调度中心 + 对外连接
+- **OpenCode** = 本地深度执行
+
+> 当前模式够用，不冲突，保持现状
+
+---
+
