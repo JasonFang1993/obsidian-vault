@@ -473,3 +473,24 @@ git add -A && git commit -m "chore: sync" && git push
 
 ---
 
+### 2026-03-02: OpenClaw 浏览器登录状态方案
+
+**来源**：https://mp.weixin.qq.com/s/5HXiV2v-9v4P3MTr4v7Bdw
+
+**问题**：OpenClaw 现有浏览器模式都有问题
+- 托管浏览器：无登录状态
+- 扩展中继：连接不稳定
+
+**解决方案**：CDP 协议
+- 通过 Chrome DevTools Protocol 直接连接
+- 保留登录状态，比扩展稳定
+
+**步骤**：
+1. 复制 Chrome 配置到新目录
+2. 用新目录启动 Chrome（remote-debugging-port=9222）
+3. 配置 OpenClaw（browser.profiles.my-browser.color）
+
+**注意**：color 字段必须写，否则报错
+
+---
+
