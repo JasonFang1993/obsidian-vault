@@ -294,6 +294,25 @@ git add -A && git commit -m "chore: sync" && git push
 
 **已添加到技能仓库**：agent-reach
 
+### Agent-Reach 热门 Issues 讨论（2026-03-02）
+
+**来源**：https://github.com/Panniantong/Agent-Reach/issues
+
+| # | 状态 | 标题 | 评论 |
+|---|------|------|------|
+| #55 | open | xiaohongshu-mcp: search_feeds 超时 | 0 |
+| #54 | open | 能否支持阅读微信公众号文章？ | 2 |
+| #53 | open | 优化项目结构：添加 CLAUDE.md、skills/ | 1 |
+| #47 | open | 为什么安装后 B 站和油管视频提取不了？ | 1 |
+| #50/51/52 | closed | Twitter 认证持久化问题 | 1-2 |
+
+**要点**：
+- 有用户提议支持微信公众号 → 我们有 weixin-reader 可以做
+- B 站/YouTube 提取问题 → 多是环境问题（需要 Node.js）
+- Twitter Cookie 同步问题 → 已有多个 fix
+
+**技术提醒**：获取公开 GitHub 信息用 API，别用网页抓取
+
 ---
 
 ## 🧠 OpenClaw 经验总结（2026-03-01）
