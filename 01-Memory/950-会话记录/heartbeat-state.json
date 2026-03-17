@@ -1,12 +1,48 @@
 {
   "version": "v0.1.2",
-  "last_heartbeat": "2026-03-17T22:14:00+08:00",
+  "last_heartbeat": "2026-03-17T22:44:00+08:00",
   "update_log": [
     {"v": "v0.1.0", "date": "2026-03-17", "change": "初始化"},
     {"v": "v0.1.1", "date": "2026-03-17", "change": "GitHub API 技巧"},
     {"v": "v0.1.2", "date": "2026-03-17", "change": "执行型进化机制优化"}
   ],
-  "todos": [],
+  "todos": [
+    {
+      "id": 1,
+      "type": "学习",
+      "task": "学习 VibeVibe 第5章 - 数字分身",
+      "input": "VibeVibe 基础篇第5章内容",
+      "output": "理解数字分身调优和基础排错",
+      "status": "pending",
+      "note": "URL不可访问，需要用户协助"
+    },
+    {
+      "id": 2,
+      "type": "学习",
+      "task": "学习 VibeVibe 第6章 - 正式上线",
+      "input": "VibeVibe 基础篇第6章内容",
+      "output": "理解公网部署和反馈收集",
+      "status": "pending",
+      "note": "URL不可访问，需要用户协助"
+    }
+  ],
+  "today_summary": {
+    "date": "2026-03-17",
+    "courses_completed": [
+      "Vibe Coding 基础概念",
+      "OpenClaw Coding Agent",
+      "实操：Web应用开发",
+      "子Agent编排",
+      "并行任务(sessions_yield)",
+      "MCP协议",
+      "VibeVibe第0-4章"
+    ],
+    "key_insights": [
+      "sessions_spawn + sessions_yield 实现可靠的子Agent协作",
+      "MCP是AI的USB接口，连接外部工具",
+      "VibeVibe: 先做出来，再逐步理解"
+    ]
+  },
   "execution_rule": {
     "每次心跳": "读取 pending → 执行 → 产出结果 → 更新 state",
     "任务必须有": "明确输入、输出、完成标准"
