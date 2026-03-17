@@ -1,15 +1,18 @@
 {
-  "last_heartbeat": "2026-03-17T15:44:00+08:00",
+  "last_heartbeat": "2026-03-17T16:14:00+08:00",
   "todos": [
-    {"id": 1, "task": "Vibe Coding 基础-概念", "status": "done"},
-    {"id": 2, "task": "Vibe Coding 基础-OpenClaw Agent", "status": "done"},
-    {"id": 3, "task": "Vibe Coding 基础-实操Web应用", "status": "done"},
-    {"id": 4, "task": "多Agent协作-子Agent编排", "status": "done"},
-    {"id": 5, "task": "多Agent协作-并行任务", "status": "done"},
-    {"id": 6, "task": "MCP工具集成-MCP协议", "status": "done"},
-    {"id": 7, "task": "MCP工具集成-自动测试", "status": "pending"},
-    {"id": 8, "task": "实战项目-完整产品", "status": "pending"},
-    {"id": 9, "task": "实战项目-工具库", "status": "pending"},
-    {"id": 10, "task": "实战项目-OPC工作流", "status": "pending"}
-  ]
+    {"id": 1, "task": "VibeVibe-第0章-学习准备", "status": "done", "note": "了解学习地图和求救流程"},
+    {"id": 2, "task": "VibeVibe-第1章-第一个版本", "status": "done", "note": "做出v1原型"},
+    {"id": 3, "task": "VibeVibe-第2章-本地项目", "status": "pending", "note": "带回本地可修改项目"},
+    {"id": 4, "task": "VibeVibe-第3章-视觉优化", "status": "pending", "note": "统一首页风格"},
+    {"id": 5, "task": "VibeVibe-第4章-内容完整+Git", "status": "pending", "note": "完整主页+Git闭环"},
+    {"id": 6, "task": "VibeVibe-第5章-数字分身", "status": "pending", "note": "调优AI分身"},
+    {"id": 7, "task": "VibeVibe-第6章-正式上线", "status": "pending", "note": "公网访问链接"}
+  ],
+  "learning_source": {
+    "name": "VibeVibe 基础篇",
+    "url": "https://www.vibevibe.cn/Basic/",
+    "goal": "个人主页 + 数字分身",
+    "core_principle": "你负责方向、判断和审美，AI 帮你把作品做出来"
+  }
 }
