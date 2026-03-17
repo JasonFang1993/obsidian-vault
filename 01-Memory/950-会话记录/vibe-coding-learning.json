@@ -1,0 +1,63 @@
+{
+  "last_heartbeat": "2026-03-17T12:26:00+08:00",
+  "learning_plan": {
+    "goal": "成为 OPC（一人公司）Vibe Coding 强大助手",
+    "focus": "AI 辅助编程 + 自动化工作流",
+    "timeline": "4周",
+    "todos": [
+      {
+        "id": 1,
+        "week": 1,
+        "topic": "Vibe Coding 基础",
+        "tasks": [
+          "掌握 Vibe Coding 核心概念",
+          "学会 OpenClaw 调用 Coding Agent",
+          "实操：做一个简单 Web 应用"
+        ],
+        "status": "in_progress"
+      },
+      {
+        "id": 2,
+        "week": 2,
+        "topic": "多 Agent 协作",
+        "tasks": [
+          "学习子 Agent 编排",
+          "掌握并行任务处理",
+          "实操：批量代码审查"
+        ],
+        "status": "pending"
+      },
+      {
+        "id": 3,
+        "week": 3,
+        "topic": "MCP 工具集成",
+        "tasks": [
+          "掌握 MCP 协议",
+          "安装配置 MCP 插件",
+          "实操：自动测试网页"
+        ],
+        "status": "pending"
+      },
+      {
+        "id": 4,
+        "week": 4,
+        "topic": "实战项目",
+        "tasks": [
+          "完成一个完整产品",
+          "建立自己的工具库",
+          "形成 OPC 工作流"
+        ],
+        "status": "pending"
+      }
+    ]
+  },
+  "current_progress": {
+    "week": 1,
+    "topic": "Vibe Coding 基础",
+    "completed": [
+      "Vibe Coding 概念",
+      "OpenClaw Coding Agent 技能"
+    ],
+    "next": "实操：做一个简单 Web 应用"
+  }
+}
