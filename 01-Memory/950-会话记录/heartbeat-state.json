@@ -1,10 +1,25 @@
 {
-  "lastMemoryMaintenance": "2026-03-13T14:05:00Z",
-  "lastSelfHealingCheck": "2026-03-13T14:05:00Z",
-  "cronStatus": {
-    "autoSaveSession": "running",
-    "vaultSync": "running"
-  },
-  "lastDailyBrief": "2026-03-15T14:05:00Z",
-  "notes": "周五系统维护完成。Gateway 200 OK。Cron 任务运行中。MEMORY.md 已更新 AI 操作系统、OpenCode 集成、工信部安全预警等重要经验。"
+  "last_heartbeat": "2026-03-17T07:56:45+08:00",
+  "todos": [
+    {
+      "id": 1,
+      "task": "学习课程1.1-OpenClaw定位",
+      "status": "done"
+    },
+    {
+      "id": 2,
+      "task": "检查文档模板",
+      "status": "pending"
+    },
+    {
+      "id": 3,
+      "task": "列出Top3自动化场景",
+      "status": "done"
+    },
+    {
+      "id": 4,
+      "task": "整理搜索技巧",
+      "status": "done"
+    }
+  ]
 }
