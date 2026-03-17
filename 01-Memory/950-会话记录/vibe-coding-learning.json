@@ -57,8 +57,9 @@
     "completed": [
       "Vibe Coding 概念",
       "OpenClaw Coding Agent 技能",
-      "实操：做一个简单 Web 应用"
+      "实操：做一个简单 Web 应用",
+      "多Agent协作-子Agent编排"
     ],
-    "next": "多Agent协作-子Agent编排"
+    "next": "多Agent协作-并行任务"
   }
 }
