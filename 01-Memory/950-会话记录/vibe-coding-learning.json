@@ -56,8 +56,9 @@
     "topic": "Vibe Coding 基础",
     "completed": [
       "Vibe Coding 概念",
-      "OpenClaw Coding Agent 技能"
+      "OpenClaw Coding Agent 技能",
+      "实操：做一个简单 Web 应用"
     ],
-    "next": "实操：做一个简单 Web 应用"
+    "next": "多Agent协作-子Agent编排"
   }
 }
