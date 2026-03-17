@@ -1,25 +1,10 @@
 {
-  "last_heartbeat": "2026-03-17T00:14:00+08:00",
+  "last_heartbeat": "2026-03-17T11:50:00+08:00",
   "todos": [
-    {
-      "id": 1,
-      "task": "学习课程1.1-OpenClaw定位",
-      "status": "done"
-    },
-    {
-      "id": 2,
-      "task": "检查文档模板",
-      "status": "done"
-    },
-    {
-      "id": 3,
-      "task": "列出Top3自动化场景",
-      "status": "done"
-    },
-    {
-      "id": 4,
-      "task": "整理搜索技巧",
-      "status": "done"
-    }
+    {"id": 1, "task": "学习课程1.1-OpenClaw定位", "status": "done"},
+    {"id": 2, "task": "检查文档模板", "status": "done"},
+    {"id": 3, "task": "列出Top3自动化场景", "status": "done"},
+    {"id": 4, "task": "整理搜索技巧", "status": "done"},
+    {"id": 5, "task": "学习课程1.2-AI视频场景拆解", "status": "done"}
   ]
 }
