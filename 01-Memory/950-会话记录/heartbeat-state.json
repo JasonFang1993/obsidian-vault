@@ -1,20 +1,33 @@
 {
-  "version": "v0.1.1",
-  "last_self_check": "2026-03-17T18:44:00+08:00",
+  "version": "v0.1.2",
+  "last_heartbeat": "2026-03-17T19:14:00+08:00",
   "update_log": [
     {"v": "v0.1.0", "date": "2026-03-17", "change": "初始化"},
-    {"v": "v0.1.1", "date": "2026-03-17", "change": "用户提醒：GitHub有反爬时用API而非放弃"}
+    {"v": "v0.1.1", "date": "2026-03-17", "change": "GitHub API 技巧"},
+    {"v": "v0.1.2", "date": "2026-03-17", "change": "执行型进化机制优化"}
   ],
-  "todos": [],
-  "lesson_learned": {
-    "problem": "GitHub有反爬时直接放弃",
-    "solution": "使用 curl + GitHub API 绕过反爬",
-    "example": "curl -s \"https://api.github.com/repos/owner/repo\" | jq"
-  },
-  "learning_source": {
-    "vibevibe": "7章学完",
-    "openmaic": "研究完成",
-    "autoskill_xskill": "论文理念已理解",
-    "memos": "85%靠谱评估"
+  "todos": [
+    {
+      "id": 1,
+      "type": "优化",
+      "task": "更新 HEARTBEAT.md 添加执行逻辑",
+      "input": "当前的 HEARTBEAT.md",
+      "output": "添加任务执行步骤的 HEARTBEAT.md",
+      "status": "done",
+      "result": "HEARTBEAT.md 已包含完整的执行步骤（步骤1-4）"
+    },
+    {
+      "id": 2,
+      "type": "实验",
+      "task": "测试执行型心跳是否工作",
+      "input": "pending 任务列表",
+      "output": "执行结果报告",
+      "status": "done",
+      "result": "执行型心跳机制正常工作，任务执行→产出→更新流程已验证"
+    }
+  ],
+  "execution_rule": {
+    "每次心跳": "读取 pending → 执行 → 产出结果 → 更新 state",
+    "任务必须有": "明确输入、输出、完成标准"
   }
 }
