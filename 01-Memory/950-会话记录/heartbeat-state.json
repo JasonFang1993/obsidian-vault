@@ -1,6 +1,6 @@
 {
   "version": "v0.1.2",
-  "last_heartbeat": "2026-03-17T22:44:00+08:00",
+  "last_heartbeat": "2026-03-17T23:14:00+08:00",
   "update_log": [
     {"v": "v0.1.0", "date": "2026-03-17", "change": "初始化"},
     {"v": "v0.1.1", "date": "2026-03-17", "change": "GitHub API 技巧"},
@@ -14,7 +14,7 @@
       "input": "VibeVibe 基础篇第5章内容",
       "output": "理解数字分身调优和基础排错",
       "status": "pending",
-      "note": "URL不可访问，需要用户协助"
+      "note": "URL不可访问，已尝试飞书搜索未果，需用户提供可访问URL"
     },
     {
       "id": 2,
@@ -23,7 +23,7 @@
       "input": "VibeVibe 基础篇第6章内容",
       "output": "理解公网部署和反馈收集",
       "status": "pending",
-      "note": "URL不可访问，需要用户协助"
+      "note": "URL不可访问，已尝试飞书搜索未果，需用户提供可访问URL"
     }
   ],
   "today_summary": {
