@@ -1,12 +1,12 @@
 {
-  "last_heartbeat": "2026-03-17T15:14:00+08:00",
+  "last_heartbeat": "2026-03-17T15:44:00+08:00",
   "todos": [
     {"id": 1, "task": "Vibe Coding 基础-概念", "status": "done"},
     {"id": 2, "task": "Vibe Coding 基础-OpenClaw Agent", "status": "done"},
     {"id": 3, "task": "Vibe Coding 基础-实操Web应用", "status": "done"},
     {"id": 4, "task": "多Agent协作-子Agent编排", "status": "done"},
     {"id": 5, "task": "多Agent协作-并行任务", "status": "done"},
-    {"id": 6, "task": "MCP工具集成-MCP协议", "status": "pending"},
+    {"id": 6, "task": "MCP工具集成-MCP协议", "status": "done"},
     {"id": 7, "task": "MCP工具集成-自动测试", "status": "pending"},
     {"id": 8, "task": "实战项目-完整产品", "status": "pending"},
     {"id": 9, "task": "实战项目-工具库", "status": "pending"},

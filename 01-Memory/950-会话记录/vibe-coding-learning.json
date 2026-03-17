@@ -59,8 +59,9 @@
       "OpenClaw Coding Agent 技能",
       "实操：做一个简单 Web 应用",
       "多Agent协作-子Agent编排",
-      "多Agent协作-并行任务"
+      "多Agent协作-并行任务",
+      "MCP工具集成-MCP协议"
     ],
-    "next": "MCP工具集成-MCP协议"
+    "next": "MCP工具集成-自动测试"
   }
 }
