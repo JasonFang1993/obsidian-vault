@@ -1,19 +1,18 @@
 {
-  "last_self_check": "2026-03-17T23:14:00+08:00",
+  "last_self_check": "2026-03-17T23:44:00+08:00",
   "check_result": {
     "pending_tasks": 2,
     "feedback_count": 0,
     "version_age_days": 0,
-    "learning_gap_days": 0,
     "status": "waiting_user"
   },
   "actions_taken": [
-    "1. 尝试访问 VibeVibe 第5、6章 - 仍然404",
+    "1. 读取 heartbeat-state.json - 2个待办",
     "2. 更新心跳时间戳",
-    "3. 等待用户提供正确的章节链接"
+    "3. 等待用户提供VibeVibe第5-6章链接"
   ],
   "issues": [
-    "VibeVibe 第5、6章 URL 仍然不可访问（404）"
+    "VibeVibe 第5、6章 URL 404，需要用户协助"
   ],
   "next_check": "下次心跳时"
 }
