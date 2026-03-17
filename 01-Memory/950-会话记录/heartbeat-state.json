@@ -1,17 +1,20 @@
 {
-  "version": "v0.1.0",
-  "last_heartbeat": "2026-03-17T18:14:00+08:00",
-  "evolution_log": [
-    {"v": "v0.1.0", "date": "2026-03-17", "change": "初始化，添加VibeVibe学习、OpenMAIC研究"}
+  "version": "v0.1.1",
+  "last_self_check": "2026-03-17T18:44:00+08:00",
+  "update_log": [
+    {"v": "v0.1.0", "date": "2026-03-17", "change": "初始化"},
+    {"v": "v0.1.1", "date": "2026-03-17", "change": "用户提醒：GitHub有反爬时用API而非放弃"}
   ],
-  "todos": [
-    {"id": 1, "task": "添加版本号到state文件", "status": "done"},
-    {"id": 2, "task": "创建feedback.md记录用户反馈", "status": "done"},
-    {"id": 3, "task": "制定Add/Merge/Discard规则", "status": "done"}
-  ],
+  "todos": [],
+  "lesson_learned": {
+    "problem": "GitHub有反爬时直接放弃",
+    "solution": "使用 curl + GitHub API 绕过反爬",
+    "example": "curl -s \"https://api.github.com/repos/owner/repo\" | jq"
+  },
   "learning_source": {
     "vibevibe": "7章学完",
     "openmaic": "研究完成",
-    "autoskill_xskill": "论文理念已理解"
+    "autoskill_xskill": "论文理念已理解",
+    "memos": "85%靠谱评估"
   }
 }
