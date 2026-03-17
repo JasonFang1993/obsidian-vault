@@ -1,54 +1,17 @@
 {
-  "last_heartbeat": "2026-03-17T17:55:00+08:00",
+  "version": "v0.1.0",
+  "last_heartbeat": "2026-03-17T18:14:00+08:00",
+  "evolution_log": [
+    {"v": "v0.1.0", "date": "2026-03-17", "change": "初始化，添加VibeVibe学习、OpenMAIC研究"}
+  ],
   "todos": [
-    {"id": 1, "task": "VibeVibe-第0章-学习准备", "status": "done", "note": "学习地图 + 求救流程"},
-    {"id": 2, "task": "VibeVibe-第1章-第一个版本", "status": "done", "note": "v1原型（个人主页+数字分身）"},
-    {"id": 3, "task": "VibeVibe-第2章-本地项目", "status": "done", "note": "本地可运行可修改的项目"},
-    {"id": 4, "task": "VibeVibe-第3章-视觉优化", "status": "done", "note": "视觉统一的首页"},
-    {"id": 5, "task": "VibeVibe-第4章-内容完整+Git", "status": "done", "note": "完整主页+Git闭环"},
-    {"id": 6, "task": "VibeVibe-第5章-数字分身", "status": "done", "note": "更稳定的AI分身"},
-    {"id": 7, "task": "VibeVibe-第6章-正式上线", "status": "done", "note": "公网访问链接"}
+    {"id": 1, "task": "添加版本号到state文件", "status": "done"},
+    {"id": 2, "task": "创建feedback.md记录用户反馈", "status": "done"},
+    {"id": 3, "task": "制定Add/Merge/Discard规则", "status": "done"}
   ],
   "learning_source": {
-    "name": "VibeVibe 基础篇",
-    "url": "https://www.vibevibe.cn/Basic/",
-    "goal": "个人主页 + 数字分身"
-  },
-  "complete_notes": {
-    "chapter_0": {
-      "title": "学习准备",
-      "deliverable": "学习地图 + 求救流程",
-      "key_insight": "先确定适合不适合这条路线"
-    },
-    "chapter_1": {
-      "title": "第一个版本",
-      "deliverable": "v1原型",
-      "key_insight": "先做出来，获得第一次正反馈"
-    },
-    "chapter_2": {
-      "title": "本地项目",
-      "deliverable": "本地可运行项目",
-      "key_insight": "带回本地，获得长期掌控力"
-    },
-    "chapter_3": {
-      "title": "视觉优化",
-      "deliverable": "统一首页风格",
-      "key_insight": "让页面更像作品"
-    },
-    "chapter_4": {
-      "title": "内容完整+Git",
-      "deliverable": "完整主页+Git闭环",
-      "key_insight": "内容完整 + 可回退"
-    },
-    "chapter_5": {
-      "title": "数字分身",
-      "deliverable": "稳定的AI分身",
-      "key_insight": "分身更像你 + 会基础排错"
-    },
-    "chapter_6": {
-      "title": "正式上线",
-      "deliverable": "公网链接",
-      "key_insight": "从想法到上线的闭环"
-    }
+    "vibevibe": "7章学完",
+    "openmaic": "研究完成",
+    "autoskill_xskill": "论文理念已理解"
   }
 }
