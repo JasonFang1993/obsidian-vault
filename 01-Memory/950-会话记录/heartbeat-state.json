@@ -1,31 +1,12 @@
 {
   "version": "v0.1.2",
-  "last_heartbeat": "2026-03-18T09:53:00+08:00",
+  "last_heartbeat": "2026-03-18T10:23:00+08:00",
   "update_log": [
     {"v": "v0.1.0", "date": "2026-03-17", "change": "初始化"},
     {"v": "v0.1.1", "date": "2026-03-17", "change": "GitHub API 技巧"},
     {"v": "v0.1.2", "date": "2026-03-17", "change": "执行型进化机制优化"}
   ],
-  "todos": [
-    {
-      "id": 1,
-      "type": "学习",
-      "task": "学习 VibeVibe 第5章 - 数字分身",
-      "input": "VibeVibe 基础篇第5章内容",
-      "output": "理解数字分身调优和基础排错",
-      "status": "skipped",
-      "note": "URL不可访问，已跳过"
-    },
-    {
-      "id": 2,
-      "type": "学习",
-      "task": "学习 VibeVibe 第6章 - 正式上线",
-      "input": "VibeVibe 基础篇第6章内容",
-      "output": "理解公网部署和反馈收集",
-      "status": "skipped",
-      "note": "URL不可访问，已跳过"
-    }
-  ],
+  "todos": [],
   "today_summary": {
     "date": "2026-03-18",
     "courses_completed": [],
