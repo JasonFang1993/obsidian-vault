@@ -1,13 +1,10 @@
 {
-  "version": "v0.1.5",
-  "last_heartbeat": "2026-03-18T18:52:00+08:00",
+  "version": "v0.2.0",
+  "last_heartbeat": "2026-03-18T19:22:00+08:00",
   "update_log": [
     {"v": "v0.1.0", "date": "2026-03-17", "change": "初始化"},
-    {"v": "v0.1.1", "date": "2026-03-17", "change": "GitHub API 技巧"},
-    {"v": "v0.1.2", "date": "2026-03-17", "change": "执行型进化机制优化"},
-    {"v": "v0.1.3", "date": "2026-03-18", "change": "新增 easy-vibe 学习计划"},
-    {"v": "v0.1.4", "date": "2026-03-18", "change": "完成 Claude Code Skills 课程"},
-    {"v": "v0.1.5", "date": "2026-03-18", "change": "完成 MCP + Agent Teams 课程"}
+    {"v": "v0.1.4", "date": "2026-03-18", "change": "完成 Skills + MCP + Agent Teams"},
+    {"v": "v0.2.0", "date": "2026-03-18", "change": "完成 easy-vibe 第三阶段全部核心课程"}
   ],
   "todos": [],
   "today_summary": {
@@ -15,22 +12,26 @@
     "courses_completed": [
       "Claude Code Skills 完全指南",
       "Claude Code MCP 完全指南",
-      "Claude Agent Teams 完全指南"
+      "Claude Code Agent Teams 完全指南",
+      "Claude Code 工作流最佳实践",
+      "Claude Code Superpowers 工程级开发",
+      "Claude Code 长时间任务（Ralph Loop）",
+      "RAG 原理与常见架构",
+      "LangGraph 高级 RAG"
     ],
     "key_insights": [
-      "【Skills】本质是提示词动态注入，三层渐进加载（元数据→完整指令→资源），Skills='怎么做'",
-      "【MCP】MCP='能用什么'，三种传输方式（STDIO/HTTP/SSE），项目级配置优先，敏感信息环境变量化",
-      "【Agent Teams】多实例并行协作，网状拓扑（vs Subagent星型），组件：Team Lead + Teammates + TaskList + Messaging",
-      "【Agent Teams最佳实践】合同优先、合理分配模型（Lead用Opus、Member用Sonnet）、任务粒度15-30分钟",
-      "【三者关系】Skills定义流程，MCP提供工具，Agent Teams实现真正协作"
+      "【Skills】本质是提示词动态注入，三层渐进加载",
+      "【MCP】=能用什么，三种传输方式（STDIO/HTTP/SSE）",
+      "【Agent Teams】网状拓扑并行协作，Team Lead用Opus，Member用Sonnet",
+      "【工作流】AI擅长执行/查找，不擅长业务决策/架构权衡",
+      "【Superpowers】TDD红绿重构循环 + brainstorming需求澄清 + 四阶段调试",
+      "【Ralph Loop】Stop Hook机制防止过早停止，<promise>标记控制完成，$297完成$50k合同",
+      "【RAG】检索增强生成 = 先查再答，解决知识时效/幻觉/可解释问题",
+      "【RAG演进】Naive RAG → Advanced RAG(检索优化) → Modular RAG(模块化编排)"
     ]
   },
   "source": {
     "name": "easy-vibe",
     "url": "https://github.com/datawhalechina/easy-vibe"
-  },
-  "execution_rule": {
-    "每次心跳": "读取 pending → 执行 → 产出结果 → 更新 state",
-    "任务必须有": "明确输入、输出、完成标准"
   }
 }
