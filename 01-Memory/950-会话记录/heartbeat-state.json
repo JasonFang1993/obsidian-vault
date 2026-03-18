@@ -1,16 +1,33 @@
 {
-  "version": "v0.1.2",
-  "last_heartbeat": "2026-03-18T17:52:00+08:00",
+  "version": "v0.1.5",
+  "last_heartbeat": "2026-03-18T18:22:00+08:00",
   "update_log": [
     {"v": "v0.1.0", "date": "2026-03-17", "change": "初始化"},
     {"v": "v0.1.1", "date": "2026-03-17", "change": "GitHub API 技巧"},
-    {"v": "v0.1.2", "date": "2026-03-17", "change": "执行型进化机制优化"}
+    {"v": "v0.1.2", "date": "2026-03-17", "change": "执行型进化机制优化"},
+    {"v": "v0.1.3", "date": "2026-03-18", "change": "新增 easy-vibe 学习计划"},
+    {"v": "v0.1.4", "date": "2026-03-18", "change": "完成 Claude Code Skills 课程"},
+    {"v": "v0.1.5", "date": "2026-03-18", "change": "完成 MCP + Agent Teams 课程"}
   ],
   "todos": [],
   "today_summary": {
     "date": "2026-03-18",
-    "courses_completed": [],
-    "key_insights": []
+    "courses_completed": [
+      "Claude Code Skills 完全指南",
+      "Claude Code MCP 完全指南",
+      "Claude Agent Teams 完全指南"
+    ],
+    "key_insights": [
+      "【Skills】本质是提示词动态注入，三层渐进加载（元数据→完整指令→资源），Skills='怎么做'",
+      "【MCP】MCP='能用什么'，三种传输方式（STDIO/HTTP/SSE），项目级配置优先，敏感信息环境变量化",
+      "【Agent Teams】多实例并行协作，网状拓扑（vs Subagent星型），组件：Team Lead + Teammates + TaskList + Messaging",
+      "【Agent Teams最佳实践】合同优先、合理分配模型（Lead用Opus、Member用Sonnet）、任务粒度15-30分钟",
+      "【三者关系】Skills定义流程，MCP提供工具，Agent Teams实现真正协作"
+    ]
+  },
+  "source": {
+    "name": "easy-vibe",
+    "url": "https://github.com/datawhalechina/easy-vibe"
   },
   "execution_rule": {
     "每次心跳": "读取 pending → 执行 → 产出结果 → 更新 state",
