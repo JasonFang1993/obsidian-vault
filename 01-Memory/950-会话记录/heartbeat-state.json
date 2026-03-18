@@ -1,37 +1,53 @@
 {
-  "version": "v0.2.0",
-  "last_heartbeat": "2026-03-18T21:22:00+08:00",
+  "version": "v0.5.0",
+  "last_heartbeat": "2026-03-18T23:56:00+08:00",
   "update_log": [
-    {"v": "v0.1.0", "date": "2026-03-17", "change": "初始化"},
-    {"v": "v0.1.4", "date": "2026-03-18", "change": "完成 Skills + MCP + Agent Teams"},
-    {"v": "v0.2.0", "date": "2026-03-18", "change": "完成 easy-vibe 第三阶段全部核心课程"}
+    {"v": "v0.5.0", "date": "2026-03-18", "change": "完成 all-in-rag 核心章节"}
   ],
-  "todos": [],
+  "todos": [
+    {
+      "id": 1,
+      "type": "学习",
+      "task": "all-in-rag 核心章节",
+      "status": "done",
+      "note": "Ch1 RAG基础 + Ch3 向量嵌入 + Ch4 高级检索 + Ch9 Graph RAG"
+    },
+    {
+      "id": 2,
+      "type": "学习",
+      "task": "self-llm - 开源大模型食用指南",
+      "priority": "P1",
+      "status": "pending"
+    },
+    {
+      "id": 3,
+      "type": "学习",
+      "task": "llm-cookbook - 吴恩达大模型课程",
+      "priority": "P2",
+      "status": "pending"
+    },
+    {
+      "id": 4,
+      "type": "学习",
+      "task": "vibe-vibe - AI for All",
+      "priority": "P2",
+      "status": "pending"
+    }
+  ],
   "today_summary": {
     "date": "2026-03-18",
     "courses_completed": [
-      "Claude Code Skills 完全指南",
-      "Claude Code MCP 完全指南",
-      "Claude Code Agent Teams 完全指南",
-      "Claude Code 工作流最佳实践",
-      "Claude Code Superpowers 工程级开发",
-      "Claude Code 长时间任务（Ralph Loop）",
-      "RAG 原理与常见架构",
-      "LangGraph 高级 RAG"
+      "easy-vibe 第三阶段（7课程）",
+      "hello-claw 构建篇（7章节 + 龙虾大学）",
+      "hello-agents 核心（5核心章节）",
+      "all-in-rag 核心（4个核心章节）"
     ],
     "key_insights": [
-      "【Skills】本质是提示词动态注入，三层渐进加载",
-      "【MCP】=能用什么，三种传输方式（STDIO/HTTP/SSE）",
-      "【Agent Teams】网状拓扑并行协作，Team Lead用Opus，Member用Sonnet",
-      "【工作流】AI擅长执行/查找，不擅长业务决策/架构权衡",
-      "【Superpowers】TDD红绿重构循环 + brainstorming需求澄清 + 四阶段调试",
-      "【Ralph Loop】Stop Hook机制防止过早停止，<promise>标记控制完成，$297完成$50k合同",
-      "【RAG】检索增强生成 = 先查再答，解决知识时效/幻觉/可解释问题",
-      "【RAG演进】Naive RAG → Advanced RAG(检索优化) → Modular RAG(模块化编排)"
+      "【RAG=开卷考试】参数化知识(LLM权重) + 非参数化知识(外部知识库)",
+      "【RAG演进】Naive RAG(检索→生成) → Advanced RAG(检索前后优化) → Modular RAG(模块化编排)",
+      "【技术选型路径】提示词工程 → RAG → 微调（成本递增，知识vs行为改变）",
+      "【四种重排】RRF(排名融合) + RankLLM(LLM推理排序) + Cross-Encoder(联合编码) + ColBERT(后期交互)",
+      "【Graph RAG】解决复杂关系推理和多跳查询，Neo4j图数据库+智能查询路由"
     ]
-  },
-  "source": {
-    "name": "easy-vibe",
-    "url": "https://github.com/datawhalechina/easy-vibe"
   }
 }
