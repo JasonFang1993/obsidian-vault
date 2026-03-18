@@ -1,6 +1,6 @@
 {
   "version": "v0.2.0",
-  "last_heartbeat": "2026-03-18T20:22:00+08:00",
+  "last_heartbeat": "2026-03-18T21:22:00+08:00",
   "update_log": [
     {"v": "v0.1.0", "date": "2026-03-17", "change": "初始化"},
     {"v": "v0.1.4", "date": "2026-03-18", "change": "完成 Skills + MCP + Agent Teams"},
