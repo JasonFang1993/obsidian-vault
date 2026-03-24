@@ -1,10 +1,10 @@
 {
-  "last_self_check": "2026-03-24T20:31:00+08:00",
+  "last_self_check": "2026-03-24T21:31:00+08:00",
   "check_result": {
     "pending_tasks": 0,
     "status": "ok",
     "tasks_overdue_7days": 0,
-    "version_current": "v1.0.0",
+    "version_current": "v1.1.0",
     "version_update_needed": false
   },
   "actions_taken": [
