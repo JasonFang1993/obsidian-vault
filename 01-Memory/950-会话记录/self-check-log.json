@@ -1,5 +1,5 @@
 {
-  "last_self_check": "2026-03-26T02:24:00+08:00",
+  "last_self_check": "2026-03-26T05:24:53.892657+08:00",
   "check_result": {
     "pending_tasks": 0,
     "status": "ok",
@@ -8,11 +8,14 @@
     "version_update_needed": false
   },
   "actions_taken": [
-    "执行心跳 - 距上次心跳约10小时（北京02:24 vs 上次16:24），心跳状态更新",
+    "执行心跳 - 21:24 UTC+8",
     "检查待办任务状态 - 清空",
-    "执行自检 - 无异常"
+    "执行自检 - 无异常",
+    "M2.7额度：1498/1500，剩余2条，CRITICAL"
   ],
-  "issues": [],
+  "issues": [
+    "M2.7额度即将耗尽"
+  ],
   "self_check": {
     "identity_consistent": true,
     "knowledge_progress": "已完成 Datawhale AI 学习计划全部内容",
