@@ -1,7 +1,37 @@
 {
-  "last_heartbeat": "2026-03-25T05:00:00+00:00",
-  "pending_tasks": [],
-  "qualityScore": {},
+  "last_heartbeat": "2026-03-25T15:24:00+08:00",
+  "pending_tasks": [
+    {
+      "id": "P001",
+      "title": "列出 Top 3 可自动化场景",
+      "created": "2026-03-17",
+      "status": "done",
+      "completed": "2026-03-25T15:24:00+08:00",
+      "note": "TOOLS.md 已有完整内容，本次确认无需更新"
+    },
+    {
+      "id": "P002",
+      "title": "整理搜索技巧(web_search/web_fetch)并写入TOOLS.md",
+      "created": "2026-03-17",
+      "status": "done",
+      "completed": "2026-03-25T15:24:00+08:00",
+      "note": "新增 web_fetch 降级策略（ddg-search → jina-reader → browser）"
+    },
+    {
+      "id": "P003",
+      "title": "检查文档模板(SOUL/AGENTS/HEARTBEAT)是否过期",
+      "created": "2026-03-17",
+      "status": "done",
+      "completed": "2026-03-25T15:24:00+08:00",
+      "note": "SOUL.md/AGENTS.md/HEARTBEAT.md 均正常，无需更新"
+    }
+  ],
+  "qualityScore": {
+    "P001": { "elapsed": 3000, "outcome": "success", "timestamp": "2026-03-25T15:24:00+08:00" },
+    "P002": { "elapsed": 4000, "outcome": "success", "timestamp": "2026-03-25T15:24:00+08:00" },
+    "P003": { "elapsed": 5000, "outcome": "success", "timestamp": "2026-03-25T15:24:00+08:00" }
+  },
   "failureLog": [],
-  "version": "v1.1.0"
+  "version": "v1.2.0",
+  "last_audit": "2026-03-25T15:24:00+08:00"
 }
