@@ -1,5 +1,5 @@
 {
-  "last_self_check": "2026-03-26T05:24:53.892657+08:00",
+  "last_self_check": "2026-03-25T23:54:00+08:00",
   "check_result": {
     "pending_tasks": 0,
     "status": "ok",
@@ -8,13 +8,10 @@
     "version_update_needed": false
   },
   "actions_taken": [
-    "执行心跳 - 21:24 UTC+8",
-    "检查待办任务状态 - 清空",
-    "执行自检 - 无异常",
-    "M2.7额度：1498/1500，剩余2条，CRITICAL"
+    "心跳 23:54 - 无pending任务，M2.7额度24条告急"
   ],
   "issues": [
-    "M2.7额度即将耗尽"
+    "M2.7窗口额度不足"
   ],
   "self_check": {
     "identity_consistent": true,
