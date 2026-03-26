@@ -1,5 +1,5 @@
 {
-  "last_self_check": "2026-03-26T09:26:53.657818+08:00",
+  "last_self_check": "2026-03-26T09:57:00+08:00",
   "check_result": {
     "pending_tasks": 0,
     "status": "ok",
@@ -8,7 +8,7 @@
     "version_update_needed": false
   },
   "actions_taken": [
-    "心跳 2026-03-26T09:26:53.657818+08:00 - 无pending任务，额度查询超时(保留上次45条)"
+    "心跳 2026-03-26T09:57:00+08:00 - 无pending任务，额度1420/1500剩余80"
   ],
   "issues": [],
   "self_check": {
