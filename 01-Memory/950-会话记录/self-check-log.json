@@ -1,5 +1,5 @@
 {
-  "last_self_check": "2026-03-26T10:27:00+08:00",
+  "last_self_check": "2026-03-26T20:27:00+08:00",
   "check_result": {
     "pending_tasks": 0,
     "status": "ok",
@@ -11,7 +11,7 @@
     "心跳 2026-03-26T10:27:00+08:00 - 无pending任务，额度1498/1500剩余2条，已发送飞书预警"
   ],
   "issues": [
-    "M2.7 额度 CRITICAL，剩余2条"
+    "M2.7额度CRITICAL，剩余2条"
   ],
   "self_check": {
     "identity_consistent": true,
