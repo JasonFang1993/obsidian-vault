@@ -1,5 +1,5 @@
 {
-  "last_heartbeat": "2026-03-26T08:55:00+08:00",
+  "last_heartbeat": "2026-03-26T09:27:00+08:00",
   "pending_tasks": [],
   "qualityScore": {},
   "failureLog": [],
@@ -7,9 +7,9 @@
   "last_audit": "2026-03-26T02:24:00+08:00",
   "quota": {
     "MiniMax-M2.7": {
-      "used": 1455,
+      "used": 1430,
       "total": 1500,
-      "remaining": 45,
+      "remaining": 70,
       "window_end": "2026-03-27T04:00:00+08:00",
       "alert": "LOW"
     }
