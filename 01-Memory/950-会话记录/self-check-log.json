@@ -1,5 +1,5 @@
 {
-  "last_self_check": "2026-03-25T23:54:00+08:00",
+  "last_self_check": "2026-03-26T08:24:00+08:00",
   "check_result": {
     "pending_tasks": 0,
     "status": "ok",
@@ -8,11 +8,9 @@
     "version_update_needed": false
   },
   "actions_taken": [
-    "心跳 23:54 - 无pending任务，M2.7额度24条告急"
+    "心跳 08:24 - 无pending任务，新窗口M2.7额度45条"
   ],
-  "issues": [
-    "M2.7窗口额度不足"
-  ],
+  "issues": [],
   "self_check": {
     "identity_consistent": true,
     "knowledge_progress": "已完成 Datawhale AI 学习计划全部内容",
