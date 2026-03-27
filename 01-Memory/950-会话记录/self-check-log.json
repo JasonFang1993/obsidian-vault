@@ -1,5 +1,5 @@
 {
-  "last_self_check": "2026-03-26T20:27:00+08:00",
+  "last_self_check": "2026-03-27T09:40:41+08:00",
   "check_result": {
     "pending_tasks": 0,
     "status": "ok",
@@ -8,10 +8,11 @@
     "version_update_needed": false
   },
   "actions_taken": [
-    "心跳 2026-03-26T10:27:00+08:00 - 无pending任务，额度1498/1500剩余2条，已发送飞书预警"
+    "心跳 2026-03-26T10:27:00+08:00 - 无pending任务，额度1498/1500剩余2条，已发送飞书预警",
+    "心跳 2026-03-27T09:40:41+08:00 - 无pending任务，额度1462/1500剩余38条"
   ],
   "issues": [
-    "M2.7额度CRITICAL，剩余2条"
+    "M2.7额度偏低，剩余38条"
   ],
   "self_check": {
     "identity_consistent": true,
